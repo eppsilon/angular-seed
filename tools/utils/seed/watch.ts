@@ -22,8 +22,8 @@ export function watch(taskname: string) {
       changeFileManager.addFile(e.path);
 
       runSequence(taskname, () => {
-	changeFileManager.clear();
-	notifyLiveReload(e);
+        changeFileManager.clear();
+        notifyLiveReload(e);
       });
     });
   };

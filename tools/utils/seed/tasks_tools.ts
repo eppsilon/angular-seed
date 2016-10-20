@@ -27,16 +27,16 @@ function normalizeTask(task: any, taskName: string) {
   if (typeof task === 'function') {
     return new class AnonTask extends Task {
       run(done: any) {
-	if (task.length > 0) {
-	  return task(done);
-	}
+        if (task.length > 0) {
+          return task(done);
+        }
 
-	const taskReturnedValue = task();
-	if (isstream(taskReturnedValue)) {
-	  return taskReturnedValue;
-	}
+        const taskReturnedValue = task();
+        if (isstream(taskReturnedValue)) {
+          return taskReturnedValue;
+        }
 
-	done();
+        done();
       }
     };
   }
